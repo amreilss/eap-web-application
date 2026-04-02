@@ -1,0 +1,70 @@
+<div class="lot-info">
+  <h3>Setup Detail</h3>
+
+  <div class="info-grid">
+    <div class="info-item">
+      <span class="label">Recipe Name</span>
+      <span class="value">{{ setupData.recipeName || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Z1: BladeType</span>
+      <span class="value">{{ setupData.z1BladeType || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z1: BladeType FullName</span>
+      <span class="value">{{ setupData.z1BladeTypeFullName || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z1: BladeID</span>
+      <span class="value">{{ setupData.z1BladeId || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z1: Production Stock</span>
+      <span class="value">{{ setupData.z1ProductionStock || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Z2: BladeType</span>
+      <span class="value">{{ setupData.z2BladeType || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z2: BladeType FullName</span>
+      <span class="value">{{ setupData.z2BladeTypeFullName || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z2: BladeID</span>
+      <span class="value">{{ setupData.z2BladeId || '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z2: Production Stock</span>
+      <span class="value">{{ setupData.z2ProductionStock || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Coating Solution Expire Date</span>
+      <span class="value">{{ setupData.coatingSolutionExpireDate || '-' }}</span>
+    </div>
+  </div>
+
+  <h3>Realtime Tooling Counters</h3>
+
+  <div class="info-grid">
+    <div class="info-item">
+      <span class="label">Z1: Exposure Remains</span>
+      <span class="value mono right">{{ setupData.z1ExposureRemains ?? '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z1: Distance Remains</span>
+      <span class="value mono right">{{ setupData.z1DistanceRemains ?? '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z2: Exposure Remains</span>
+      <span class="value mono right">{{ setupData.z2ExposureRemains ?? '-' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Z2: Distance Remains</span>
+      <span class="value mono right">{{ setupData.z2DistanceRemains ?? '-' }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<header class="eap-header">
+  <div class="wrap">
+    <div class="left">
+      <!-- 🔙 Back Button -->
+      <button *ngIf="showBackButton" class="btn-back" (click)="goBack()" title="Go back">
+        <img src="assets/icon/back-button.png" alt="Back" />
+      </button>
+      <span class="brand" (click)="goHome()">👩‍💻 EAP</span>
+    </div>
+
+    <div class="center">
+      <span class="plant-pill">🏭 Plant {{ plantSvc.getPlant() }}</span>
+    </div>
+      
+      <!-- Header Right Side -->
+    <nav class="right">
+
+      <!-- ถ้ายังไม่ login -->
+      <ng-container *ngIf="!(isLoggedIn$ | async); else loggedTpl">
+        <button class="btn-login" (click)="toggleLogin()">Login</button>
+
+        <!-- Popup Login -->
+        <div *ngIf="showLogin" class="login-modal">
+          <div class="login-backdrop" (click)="closeLogin()"></div>
+          <div class="login-dialog" (click)="$event.stopPropagation()">
+            <button class="close-btn" type="button" (click)="closeLogin()">×</button>
+
+            <form [formGroup]="form" (ngSubmit)="submitLogin()" class="login-form">
+              <h3 class="title">🔒 Login</h3>
+
+              <label class="field">
+                <span>User ID</span>
+                <input formControlName="userID" />
+              </label>
+
+              <label class="field">
+                <span>Password</span>
+                <input type="password" formControlName="userPassword" />
+              </label>
+
+              <button class="btn primary full" [disabled]="form.invalid || loading">
+                {{ loading ? '◌' : 'Login' }}
+              </button>
+
+              <div class="error" *ngIf="error">{{ error }}</div>
+            </form>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ถ้า login แล้ว -->
+      <ng-template #loggedTpl>
+        <ng-container *ngIf="user$ | async as u">
+          <button class="btn-user">
+            <span class="avatar">👤</span>
+            <span class="uid">{{ u.id || u.name || 'User' }}</span>
+          </button>
+        </ng-container>
+      </ng-template>
+
+      <!--  Popup change password -->
+      <div *ngIf="showChangePassword" class="change-pass-modal">
+        <div class="login-backdrop" (click)="closeChangePassword()"></div>
+        <div class="login-dialog" (click)="$event.stopPropagation()">
+          <button class="close-btn" type="button" (click)="closeChangePassword()">×</button>
+          <form [formGroup]="changeForm" (ngSubmit)="submitChangePassword()" class="login-form">
+            <h3 class="title">🔑 Change Password</h3>
+            <label class="field"><span>Old Password</span>
+              <input type="password" formControlName="oldUserPassword" />
+            </label>
+            <label class="field"><span>New Password</span>
+              <input type="password" formControlName="newUserPassword" />
+            </label>
+            <label class="field"><span>Confirm Password</span>
+              <input type="password" formControlName="confirmUserPassword" />
+            </label>
+            <button class="btn primary full" [disabled]="changeForm.invalid || loading">
+              {{ loading ? 'Updating…' : 'Update Password' }}
+            </button>
+            <div class="error" *ngIf="error">{{ error }}</div>
+            <div class="success" *ngIf="success">{{ success }}</div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Popup Plant Setting -->
+      <div *ngIf="showPlantPopup" class="plant-popup-container">
+        <div class="plant-popup-backdrop" (click)="closePlantPopup()"></div>
+        <div class="plant-popup-dialog">
+          <!-- ⚙️ Popup Plant Setting -->
+          <app-plant-setting-popup
+          *ngIf="showPlantPopup"
+          (close)="closePlantPopup()">
+          </app-plant-setting-popup>
+        </div>
+      </div>
+      
+      
+
+      <!-- ☰ ปุ่มเมนู -->
+      <button class="btn-icon" title="Menu" (click)="toggleMenu()">⋮</button>
+
+      <!--  right dropdown -->
+      <div *ngIf="showMenu" class="menu-dropdown animated" (click)="$event.stopPropagation()">
+        <div class="menu-user">
+          <div class="avatar-big">👤</div>
+          <div class="user-info">
+            <div class="userid">{{ userValue?.id || 'User' }}</div>
+            <div class="usermail">{{ userValue?.name || 'Logged in' }}</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <button class="menu-item" (click)="openPlantPopup()">
+          <span class="icon">⚙️</span><span class="label">Change Plant</span>
+        </button>
+
+        <button class="menu-item" (click)="openChangePassword()">
+          <span class="icon">🔑</span><span class="label">Change Password</span>
+        </button>
+
+        <div class="divider"></div>
+
+        <button class="menu-item danger" (click)="logout()">
+          <span class="icon">🚪</span><span class="label">Logout</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

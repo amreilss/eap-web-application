@@ -1,0 +1,18 @@
+<div class="md-overlay" *ngIf="open" (click)="onBackdropClick($event)">
+    <div class="md-dialog" role="dialog" aria-modal="true" tabindex="-1" (click)="$event.stopPropagation()">
+      <header class="md-head">
+        <h3 class="md-title">Assy / SQC</h3>
+        <button class="md-close" type="button" (click)="close()" aria-label="Close">×</button>
+      </header>
+  
+      <section class="md-body">
+        <div class="demo-box">Assy / SQC</div>
+      </section>
+  
+      <footer class="md-foot">
+        <button class="btn ghost" type="button" (click)="close()">Close</button>
+        <button class="btn primary" type="button" (click)="close()">OK</button>
+      </footer>
+    </div>
+  </div>
+  

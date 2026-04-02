@@ -1,0 +1,78 @@
+<div class="popup">
+  <header class="popup__head">
+    <h3>Return / Reject / Reset</h3>
+  </header>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="seg" role="tablist" aria-label="Select action">
+      <label class="seg__item">
+        <input class="seg__input" type="radio" value="return" formControlName="mode" />
+        <span class="seg__text"><span class="seg__icon">↩️</span>Return</span>
+      </label>
+
+      <label class="seg__item">
+        <input class="seg__input" type="radio" value="reject" formControlName="mode" />
+        <span class="seg__text"><span class="seg__icon">🚫</span>Reject</span>
+      </label>
+
+      <label class="seg__item">
+        <input class="seg__input" type="radio" value="reset" formControlName="mode" />
+        <span class="seg__text"><span class="seg__icon">🔄</span>Reset</span>
+      </label>
+    </div>
+
+    <div class="field">
+      <span class="label">Blade ID (saw_ToolingID)</span>
+      <input
+        class="input"
+        type="text"
+        formControlName="bladeId"
+        placeholder="เช่น 72809008 KF029 EXP0561 2507" />
+    </div>
+
+    <div class="field" *ngIf="isReject">
+      <span class="label">Reason</span>
+
+      <div class="reason-row">
+        <select
+          class="select"
+          formControlName="reasonCode"
+          [disabled]="reasonsLoading || reasons.length === 0"
+          aria-label="Reject reason">
+          <option [ngValue]="null" disabled>— เลือกเหตุผล —</option>
+          <option *ngFor="let r of reasons" [ngValue]="r.code">
+            {{ r.en }}
+          </option>
+        </select>
+
+        <div class="reason-banner" [ngClass]="selectedReason?.tone || 'info'">
+          <div class="reason-title">
+            {{ selectedReason?.en || 'เลือกเหตุผล' }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="actions__left">
+        <span class="action-state busy" *ngIf="loading">กำลังดำเนินการ…</span>
+        <span class="action-state ok" *ngIf="!loading && success">{{ success }}</span>
+        <span class="action-state wait" *ngIf="!loading && !success && error">{{ error }}</span>
+        <span class="action-state wait" *ngIf="!loading && !success && !error">พร้อมดำเนินการ</span>
+      </div>
+
+      <div class="actions__right">
+        <button class="btn" type="button" (click)="clear()" [disabled]="loading">
+          Clear
+        </button>
+        <button
+          class="btn"
+          [ngClass]="submitClass"
+          type="submit"
+          [disabled]="loading || form.invalid || (isReject && !form.controls.reasonCode.value)">
+          {{ submitText }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

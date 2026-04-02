@@ -1,0 +1,36 @@
+{
+  "/api": {
+    "target": "http://localhost:5126",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  
+  "/EAPAPI": {
+    "target": "http://10.151.15.134:808",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  
+  "/EquipService": {
+    "target": "http://10.151.15.134:808",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  
+  "/ToolingService": {
+    "target": "http://10.151.15.134:808",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  
+  "/AuthService": {
+    "target": "http://10.151.15.134:808",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

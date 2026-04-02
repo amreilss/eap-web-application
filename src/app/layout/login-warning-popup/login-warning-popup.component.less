@@ -1,0 +1,85 @@
+.login-warning {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .popup-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: popIn 0.25s ease-out;
+    position: relative;
+    min-width: 300px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: #6b7280;
+    transition: color 0.2s;
+  }
+  .close-btn:hover { color: #2852d6; }
+  
+  .emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+  }
+  
+  .msg {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 8px 0 20px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn.primary {
+    background: #2852d6;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn.primary:hover {
+    background: #1e40af;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes popIn {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  

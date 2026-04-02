@@ -1,0 +1,13 @@
+<div class="login-warning" (click)="close()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="close()">×</button>
+      <span class="emoji">🔒</span>
+      <h3>Please login</h3>
+      <p class="msg">You need to login before using this function.</p>
+  
+      <div class="actions">
+        <button class="btn primary" (click)="goToLogin()">Go to Login</button>
+      </div>
+    </div>
+  </div>
+  

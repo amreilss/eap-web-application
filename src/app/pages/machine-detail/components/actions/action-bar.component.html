@@ -1,0 +1,103 @@
+<div class="action-bar">
+  <div class="primary-bar">
+    <button
+      type="button"
+      (click)="onClickDownload()"
+      class="action-card"
+      aria-label="Download Recipe">
+      <div class="card-icon">
+        <img src="assets/icon/download.png" alt="Download">
+      </div>
+      <div class="card-content">
+        <span class="card-title">Download</span>
+        <span class="card-subtitle">Recipe</span>
+      </div>
+    </button>
+
+    <button
+      type="button"
+      (click)="onClickUpload()"
+      class="action-card"
+      aria-label="Upload Recipe">
+      <div class="card-icon">
+        <img src="assets/icon/upload.png" alt="Upload">
+      </div>
+      <div class="card-content">
+        <span class="card-title">Upload</span>
+        <span class="card-subtitle">Recipe</span>
+      </div>
+    </button>
+
+    <button
+      type="button"
+      class="action-card"
+      [routerLink]="['/machine', machineId, 'tooling']"
+      aria-label="Machine Tooling">
+      <div class="card-icon"><img src="assets/icon/tooling.png" alt="Machine"></div>
+      <div class="card-content">
+        <span class="card-title">Machine</span>
+        <span class="card-subtitle">tooling</span>
+      </div>
+    </button>
+  </div>
+
+  <div class="secondary-menu">
+    <button
+      type="button"
+      (click)="onClickSpecial()"
+      class="action-card"
+      aria-label="Special Download">
+      <div class="card-icon">
+        <img src="assets/icon/special-download.png" alt="Special Download">
+      </div>
+      <div class="card-content">
+        <span class="card-title">Special</span>
+        <span class="card-subtitle">Download</span>
+      </div>
+    </button>
+
+    <button
+      type="button"
+      (click)="onClickSQC()"
+      class="action-card"
+      aria-label="Assembly SQC">
+      <div class="card-icon">
+        <img src="assets/icon/flag.png" alt="SQC">
+      </div>
+      <div class="card-content">
+        <span class="card-title">Assy</span>
+        <span class="card-subtitle">SQC</span>
+      </div>
+    </button>
+
+    <button
+      type="button"
+      (click)="onClickRecipeList()"
+      class="action-card"
+      aria-label="Recipe List">
+      <div class="card-icon">
+        <img src="assets/icon/star.png" alt="Recipe List">
+      </div>
+      <div class="card-content">
+        <span class="card-title">Recipe</span>
+        <span class="card-subtitle">List</span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="center-popup" *ngIf="showWarning">
+  <div class="popup-box">
+    <span>Please login before using this function</span>
+  </div>
+</div>
+
+<app-login-warning-popup
+  *ngIf="showWarning"
+  (closed)="showWarning = false"
+  (goLogin)="openLoginPopup()">
+</app-login-warning-popup>
+
+
+
+

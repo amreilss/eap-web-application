@@ -1,0 +1,43 @@
+<div class="bg-effects" #bgEffects>
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+  <div class="floating-shape shape4"></div>
+</div>
+<div class="grid-bg"></div>
+
+<!-- Hero Section -->
+<section class="hero" #heroRoot>
+  <div class="hero-left">
+    <div class="logo-container">
+      <div class="logo-ring"></div>
+      <div class="utac-logo" #utacLogo>
+        <div class="logo-circle"><span class="logo-u">U</span></div>
+        <span class="logo-text">TAC</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <h1 class="hero-title">
+      <span class="e">E</span><span class="a">A</span><span class="p-red">P</span>
+    </h1>
+    <p class="hero-sub">Equipment Automation<br />Program</p>
+    <button class="btn-cta" #ctaBtn>EAP</button>
+  </div>
+</section>
+
+<section class="search-wrap">
+  <app-search-box [(value)]="keyword" placeholder="Search machine..." />
+</section>
+
+<section id="machine-list" class="grid">
+  <app-machine-card
+    *ngFor="let m of filtered(); trackBy: trackByName"
+    [name]="m.name"
+    [img]="m.img"
+    (click)="openIfSaw(m.name)"
+  />
+</section>
+
+<app-scroll-to-top></app-scroll-to-top>

@@ -1,0 +1,29 @@
+.panel { display: flex; flex-direction: column; gap: 12px; }
+
+/* ปุ่มหลัก (โชว์ตลอด) */
+.group-head { display: flex; gap: 8px; }
+.head-btn {
+  flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid #e5e7eb;
+  background: #fff; font-weight: 700; cursor: pointer;
+}
+.head-btn.is-active { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+
+/* โซนปุ่มลูก */
+.sub-list {
+  display: grid; 
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+.sub-btn {
+  padding: 8px 10px; 
+  border-radius: 8px; 
+  border: 1px solid #e5e7eb; 
+  color: rgb(130, 129, 129);
+  background: #f9fafb; 
+  text-align: left; 
+  font-weight: 600; 
+  font-size: 14px;
+  cursor: pointer;
+  
+}
+.sub-btn:disabled { opacity: .5; cursor: not-allowed; }

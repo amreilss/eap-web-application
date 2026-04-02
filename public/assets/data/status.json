@@ -1,0 +1,836 @@
+[
+    {
+      "equipID": "TSWD036",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD038",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T10:40:20.69"
+    },
+    {
+      "equipID": "TSWD051",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T09:52:56.237"
+    },
+    {
+      "equipID": "TSWD052",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD056",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD059",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T11:57:27.433"
+    },
+    {
+      "equipID": "TSWD060",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD062",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD063",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD065",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T12:51:50.62"
+    },
+    {
+      "equipID": "TSWD069",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD079",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T16:39:44.847"
+    },
+    {
+      "equipID": "TSWD098",
+      "oeeMode": "WS",
+      "oeeDescription": "Waiting For Conversion",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD099",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD100",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD103",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:19:47.81"
+    },
+    {
+      "equipID": "TSWD104",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T09:34:03.933"
+    },
+    {
+      "equipID": "TSWD105",
+      "oeeMode": "PD",
+      "oeeDescription": "E0021  Elevator cover open error.",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD109",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T11:56:35.517"
+    },
+    {
+      "equipID": "TSWD110",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD111",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T14:49:19.283"
+    },
+    {
+      "equipID": "TSWD122",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T12:50:10.84"
+    },
+    {
+      "equipID": "TSWD123",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD124",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD125",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:59:10.117"
+    },
+    {
+      "equipID": "TSWD126",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T15:25:13.66"
+    },
+    {
+      "equipID": "TSWD127",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T15:34:37.197"
+    },
+    {
+      "equipID": "TSWD128",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:27:15.987"
+    },
+    {
+      "equipID": "TSWD129",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T15:00:00.573"
+    },
+    {
+      "equipID": "TSWD131",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T15:48:50.023"
+    },
+    {
+      "equipID": "TSWD132",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:41:57.243"
+    },
+    {
+      "equipID": "TSWD138",
+      "oeeMode": "PD",
+      "oeeDescription": "K0039  Kerf check: Off center.",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD139",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD144",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T10:02:48.2"
+    },
+    {
+      "equipID": "TSWD145",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T16:27:29.103"
+    },
+    {
+      "equipID": "TSWD146",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T10:06:17.583"
+    },
+    {
+      "equipID": "TSWD148",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD149",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:24:48.203"
+    },
+    {
+      "equipID": "TSWD150",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:34:54.227"
+    },
+    {
+      "equipID": "TSWD151",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD160",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:54:14.77"
+    },
+    {
+      "equipID": "TSWD161",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T16:31:30.46"
+    },
+    {
+      "equipID": "TSWD162",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:08:39.3"
+    },
+    {
+      "equipID": "TSWD163",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T14:51:27.26"
+    },
+    {
+      "equipID": "TSWD164",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T14:00:08.573"
+    },
+    {
+      "equipID": "TSWD168",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T15:53:20.173"
+    },
+    {
+      "equipID": "TSWD169",
+      "oeeMode": "WS",
+      "oeeDescription": "",
+      "startTime": "2025-08-06T19:00:00"
+    },
+    {
+      "equipID": "TSWD171",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:54:21.523"
+    },
+    {
+      "equipID": "TSWD172",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:59:57.407"
+    },
+    {
+      "equipID": "TSWD175",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T14:24:36.33"
+    },
+    {
+      "equipID": "TSWD176",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T16:01:39.693"
+    },
+    {
+      "equipID": "TSWD177",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T10:43:12.94"
+    },
+    {
+      "equipID": "TSWD181",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T07:11:14.517"
+    },
+    {
+      "equipID": "TSWD183",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:02:59.247"
+    },
+    {
+      "equipID": "TSWD184",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T15:45:02.94"
+    },
+    {
+      "equipID": "TSWD185",
+      "oeeMode": "WS",
+      "oeeDescription": "Waiting For Conversion",
+      "startTime": "2025-08-07T10:51:33.337"
+    },
+    {
+      "equipID": "TSWD186",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T14:32:05.107"
+    },
+    {
+      "equipID": "TSWD187",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T14:59:12.523"
+    },
+    {
+      "equipID": "TSWD190",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:59:19.54"
+    },
+    {
+      "equipID": "TSWD191",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T15:29:14.633"
+    },
+    {
+      "equipID": "TSWD192",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:59:09.777"
+    },
+    {
+      "equipID": "TSWD193",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD196",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T09:23:45.247"
+    },
+    {
+      "equipID": "TSWD197",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:58:33.333"
+    },
+    {
+      "equipID": "TSWD198",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T15:12:35.637"
+    },
+    {
+      "equipID": "TSWD199",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:54:04.297"
+    },
+    {
+      "equipID": "TSWD206",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T11:14:28.333"
+    },
+    {
+      "equipID": "TSWD207",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T07:35:58.353"
+    },
+    {
+      "equipID": "TSWD208",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:57:03.023"
+    },
+    {
+      "equipID": "TSWD209",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T07:27:07.34"
+    },
+    {
+      "equipID": "TSWD210",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:07:31.187"
+    },
+    {
+      "equipID": "TSWD211",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD212",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:02:13.38"
+    },
+    {
+      "equipID": "TSWD213",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:07:14.613"
+    },
+    {
+      "equipID": "TSWD214",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T07:48:27.97"
+    },
+    {
+      "equipID": "TSWD215",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD216",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD219",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T11:08:58.303"
+    },
+    {
+      "equipID": "TSWD220",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T15:42:57.797"
+    },
+    {
+      "equipID": "TSWD221",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD222",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T14:08:26.98"
+    },
+    {
+      "equipID": "TSWD223",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T14:10:39.03"
+    },
+    {
+      "equipID": "TSWD224",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD225",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T16:02:25.983"
+    },
+    {
+      "equipID": "TSWD226",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD228",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T15:55:58.813"
+    },
+    {
+      "equipID": "TSWD229",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD230",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T14:08:40.95"
+    },
+    {
+      "equipID": "TSWD231",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T12:51:07.383"
+    },
+    {
+      "equipID": "TSWD232",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:55:48.853"
+    },
+    {
+      "equipID": "TSWD233",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T14:15:45.903"
+    },
+    {
+      "equipID": "TSWD234",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T09:56:27.837"
+    },
+    {
+      "equipID": "TSWD238",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T15:23:15.877"
+    },
+    {
+      "equipID": "TSWD241",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD242",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:49:11.587"
+    },
+    {
+      "equipID": "TSWD244",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T12:51:30.013"
+    },
+    {
+      "equipID": "TSWD246",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:09:34.357"
+    },
+    {
+      "equipID": "TSWD248",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T16:06:15.797"
+    },
+    {
+      "equipID": "TSWD249",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T16:03:44.687"
+    },
+    {
+      "equipID": "TSWD252",
+      "oeeMode": "WS",
+      "oeeDescription": "Waiting For Conversion",
+      "startTime": "2025-08-07T14:33:35.183"
+    },
+    {
+      "equipID": "TSWD255",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD256",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD257",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:24:34.653"
+    },
+    {
+      "equipID": "TSWD258",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T13:38:09.08"
+    },
+    {
+      "equipID": "TSWD259",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T12:48:20.607"
+    },
+    {
+      "equipID": "TSWD261",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T16:22:44.937"
+    },
+    {
+      "equipID": "TSWD264",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD265",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T14:09:15.543"
+    },
+    {
+      "equipID": "TSWD266",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T14:08:58.75"
+    },
+    {
+      "equipID": "TSWD267",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T16:30:51.437"
+    },
+    {
+      "equipID": "TSWD268",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T13:54:44.12"
+    },
+    {
+      "equipID": "TSWD271",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:54:27.637"
+    },
+    {
+      "equipID": "TSWD272",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD274",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T11:01:59.837"
+    },
+    {
+      "equipID": "TSWD276",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD278",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T09:14:50.773"
+    },
+    {
+      "equipID": "TSWD279",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T13:41:43.483"
+    },
+    {
+      "equipID": "TSWD281",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD282",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T08:00:21.373"
+    },
+    {
+      "equipID": "TSWD283",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T13:54:48.443"
+    },
+    {
+      "equipID": "TSWD284",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T13:13:24.017"
+    },
+    {
+      "equipID": "TSWD286",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD289",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T16:28:56.037"
+    },
+    {
+      "equipID": "TSWD293",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T14:33:14.923"
+    },
+    {
+      "equipID": "TSWD294",
+      "oeeMode": "PD",
+      "oeeDescription": "Production",
+      "startTime": "2025-08-07T14:32:44.513"
+    },
+    {
+      "equipID": "TSWD296",
+      "oeeMode": "PD",
+      "oeeDescription": "",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWD299",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWL006",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:54:50.18"
+    },
+    {
+      "equipID": "TSWL007",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:54:53.223"
+    },
+    {
+      "equipID": "TSWL008",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWL009",
+      "oeeMode": "CM",
+      "oeeDescription": "Host/Appln Power Down",
+      "startTime": "2025-08-07T13:54:55.297"
+    },
+    {
+      "equipID": "TSWL010",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWL012",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWL013",
+      "oeeMode": "WS",
+      "oeeDescription": "Waiting For Conversion",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWL014",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    },
+    {
+      "equipID": "TSWS001",
+      "oeeMode": "SB",
+      "oeeDescription": "",
+      "startTime": "2025-08-06T19:00:00"
+    },
+    {
+      "equipID": "TSWT001",
+      "oeeMode": "CV",
+      "oeeDescription": "Conversion",
+      "startTime": "2025-08-07T14:51:31.077"
+    },
+    {
+      "equipID": "TSWT002",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T09:18:41.157"
+    },
+    {
+      "equipID": "TSWT003",
+      "oeeMode": "SB",
+      "oeeDescription": "Waiting for Production",
+      "startTime": "2025-08-07T07:00:00"
+    }
+  ]

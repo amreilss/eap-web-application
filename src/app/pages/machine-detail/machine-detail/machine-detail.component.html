@@ -1,0 +1,89 @@
+<!-- machine-detail.component.html -->
+<div class="machine-detail-page" *ngIf="machine as m">
+
+  <!-- Header -->
+  <div class="header status-bar" *ngIf="machine as m">
+    <div class="title-stack">
+      <div class="title-row">
+        <span class="dot" [class]="statusClass(m.oeeMode)"></span>
+        <h1 class="id">{{ m.equipID }}</h1>
+      </div>
+      <div class="status-sub" *ngIf="m.oeeDescription || m.oeeMode">
+        {{ m.oeeDescription || m.oeeMode || 'Unknown' }}
+      </div>
+    </div>
+    <div class="status-right">
+      <span class="status-badge" [ngClass]="badgeClass(m.oeeMode)">
+        {{ m.oeeMode || 'UK' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== GRID WRAPPER ===== -->
+  <div class="grid-container">
+    <!-- LEFT -->
+    <div class="left">
+      <div class="identity-card">
+        <img src="assets/img/saw.png" alt="{{ m.equipID }}">
+      </div>
+
+      <!-- ปุ่มหัว (ของหน้า) -->
+      <div class="mode-buttons" role="group" aria-label="Mode shortcuts">
+        <button class="mode-btn"
+                [class.active]="mode === 'production'"
+                (click)="setMode('production')">
+          Production
+        </button>
+        <button class="mode-btn"
+                [class.active]="mode === 'maintenance'"
+                (click)="setMode('maintenance')">
+          Maintenance
+        </button>
+      </div>
+
+      <!-- ปุ่มลูก -->
+      <op-actions-panel
+        [productionActions]="prodBtns"
+        [maintenanceActions]="maintBtns"
+        [expanded]="mode === 'production' ? 'PROD' : 'MAINT'"
+        [showHeaders]="false"
+        (select)="handleAction($event)">
+      </op-actions-panel>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <app-action-bar
+        [machineId]="m.equipID"
+        (requestLogin)="triggerLoginPopup()" 
+        (openDownload)="showDownload = true"
+        (openUpload)="openUploadPopup()"
+        (openSpecial)="showSpecial = true"
+        (openSQC)="showSQC = true"
+        (openRecipeList)="showRecipeList = true">
+      </app-action-bar>
+
+      <app-detail-panel></app-detail-panel>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <app-download-recipe
+    [open]="showDownload"
+    [equipID]="m.equipID"
+    (closed)="showDownload = false"
+    (downloaded)="onRecipeDownloaded($event)">
+  </app-download-recipe>
+
+  <app-upload-recipe
+    [open]="showUpload"
+    [equipID]="m.equipID"
+    [defaultRecipeName]="m.equipID + '-STD'"
+    (closed)="showUpload = false"
+    (submitted)="onRecipeUploaded($event)">
+  </app-upload-recipe>
+
+  <app-special-download [open]="showSpecial" (closed)="showSpecial=false"></app-special-download>
+  <app-assy-sqc        [open]="showSQC"     (closed)="showSQC=false"></app-assy-sqc>
+  <app-recipe-list     [open]="showRecipeList" (closed)="showRecipeList=false"></app-recipe-list>
+</div>

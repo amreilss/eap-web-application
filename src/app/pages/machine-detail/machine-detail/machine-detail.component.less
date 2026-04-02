@@ -1,0 +1,418 @@
+.machine-detail-page {
+  box-sizing: border-box;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+
+  /* ===== Heading ===== */
+  h1 {
+    margin: 0 0 0 1rem;
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ===== Top status bar (title + badge) ===== */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 25px;
+    flex-wrap: nowrap;
+  }
+
+  .title-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .id {
+      margin: 0;
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .status-sub {
+      padding-left: 24px;
+      color: #6b7280;
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+  }
+
+  /* จุดสถานะ (สีไฟ) */
+  .dot { width: 12px; height: 12px; border-radius: 999px; display: inline-block; flex: 0 0 auto; }
+  .dot.is-pd { background: #22c55e; }
+  .dot.is-dn { background: #ef4444; }
+  .dot.is-sb { background: #eab308; }
+  .dot.is-rp { background: #f59e0b; }
+  .dot.is-uk { background: #9ca3af; }
+  .dot.is-wt { background: #14b8a6; }
+
+  /* Badge container (ฝั่งขวา) */
+  .status-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* ===== Status badge ===== */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 28px;
+    white-space: nowrap;
+  }
+
+  /* สี badge */
+  .status-badge.badge--green  { background: #22c55e; color: #fff; }
+  .status-badge.badge--red    { background: #ef4444; color: #fff; }
+  .status-badge.badge--orange { background: #f59e0b; color: #fff; }
+  .status-badge.badge--yellow { background: #eab308; color: #fff; }
+  .status-badge.badge--grey   { background: #9ca3af; color: #fff; }
+  .status-badge.badge--turquoise { background: #14b8a6; color: #fff; }
+  .status-badge.badge--maroon    { background: #7f1d1d; color: #fff; }
+  .status-badge.badge--pink      { background: #db2777; color: #fff; }
+  .status-badge.badge--blue { background: #3b82f6; color: #fff; }
+
+  /* ===== Main grid (ซ้ายรูป / ขวาปุ่ม+รายละเอียด) ===== */
+  .grid-container {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(0, 2fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* LEFT column */
+  .left {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  /* RIGHT column */
+  .right {
+    min-width: 0;
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+
+  /* Identity card (รูป) */
+  .identity-card {
+    text-align: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+
+    img {
+      max-width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  /* ===== Mode buttons (ใต้รูป) ===== */
+  .mode-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 8px 0 20px;
+  }
+
+  .mode-btn {
+    width: 100%;
+    min-height: 44px;
+    appearance: none;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease, transform .05s ease;
+
+    &:hover  { background: #f9fafb; border-color: #d1d5db; }
+    &:active { transform: translateY(1px); }
+    &.active { background: #9b6cf3; border-color: #ffffff; color: #fff; }
+  }
+
+  /* ===== Action bar ===== */
+  .action-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+
+    button {
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      min-height: 44px;
+    }
+  }
+
+  /* ===== Bottom navigation ===== */
+  .bottom-nav {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ===== Tablet ===== */
+  @media (max-width: 1024px) {
+    .title-stack .id {
+      font-size: 2rem;
+    }
+
+    .title-stack .status-sub {
+      font-size: 1.05rem;
+    }
+
+    .status-badge {
+      font-size: 22px;
+      min-width: 78px;
+      min-height: 38px;
+      padding: 6px 12px;
+    }
+
+    .grid-container {
+      grid-template-columns: minmax(220px, 0.95fr) minmax(0, 1.6fr);
+      gap: 16px;
+    }
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 800px) {
+    .status-bar {
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .title-stack {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .title-stack .id {
+      font-size: 1.7rem;
+      margin-left: 0;
+    }
+
+    .title-stack .status-sub {
+      padding-left: 24px;
+      font-size: 0.95rem;
+    }
+
+    .status-right {
+      margin-left: auto;
+      justify-content: flex-end;
+      align-self: flex-start;
+    }
+
+    .status-badge {
+      font-size: 18px;
+      min-width: 64px;
+      min-height: 34px;
+      padding: 6px 10px;
+    }
+
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .left,
+    .right {
+      width: 100%;
+    }
+
+    .identity-card img {
+      max-height: 180px;
+    }
+
+    .mode-buttons {
+      grid-template-columns: 1fr;
+      margin: 8px 0 12px;
+    }
+  }
+
+  /* ===== Small mobile ===== */
+  @media (max-width: 560px) {
+    padding: 16px 12px 28px;
+
+    .header {
+      gap: 12px;
+      margin-bottom: 0.75rem;
+    }
+
+    .status-bar {
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .title-stack {
+      gap: 4px;
+    }
+
+    .title-stack .title-row {
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .title-stack .id {
+      font-size: 1.35rem;
+      line-height: 1.15;
+    }
+
+    .title-stack .status-sub {
+      padding-left: 22px;
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 4px;
+    }
+
+    .status-badge {
+      font-size: 14px;
+      min-width: 54px;
+      min-height: 30px;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .identity-card {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .identity-card img {
+      max-height: 150px;
+    }
+
+    .mode-btn {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+}
+
+/* ==== Overlay & Dialog ==== */
+.no-scroll{ position:fixed; inset:0; width:100%; height:100%; overflow:hidden !important; }
+
+.md-overlay{
+  position: fixed; inset: 0; z-index: 1100;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(15,23,42,.35); backdrop-filter: blur(2px);
+  animation: mdFade .14s ease-out;
+}
+@keyframes mdFade{ from{opacity:0} to{opacity:1} }
+
+.md-dialog{
+  width: min(860px, 92vw);
+  max-height: min(80dvh, 680px);
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  animation: mdPop .18s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes mdPop{ from{ transform:scale(.96); opacity:0 } to{ transform:scale(1); opacity:1 } }
+
+/* ==== Head / Body / Foot ==== */
+.md-head{
+  position: sticky; top: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; background: #fff; border-bottom: 1px solid #e5e7eb;
+  border-top-left-radius: 14px; border-top-right-radius: 14px;
+}
+.md-title{ margin: 0; font-size: 18px; font-weight: 800; }
+.md-close{
+  width: 34px; height: 34px; border-radius: 8px;
+  border: 1px solid #e5e7eb; background: #fff; cursor: pointer; font-size: 20px;
+}
+.md-close:hover{ background:#f8fafc; }
+
+.md-body{ padding: 16px 18px; display: grid; gap: 14px; }
+.md-foot{
+  display: flex; justify-content: flex-end; gap: 10px;
+  padding: 14px 18px; border-top: 1px solid #e5e7eb;
+  border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+}
+
+/* ==== Form mini ==== */
+.form{ display: grid; gap: 12px; }
+.field{ display: grid; gap: 6px; }
+.label{ font-size: 12px; color: #6b7280; font-weight: 700; }
+.input{
+  height: 40px; padding: 8px 12px; border-radius: 10px; border: 1px solid #e5e7eb; outline: none;
+}
+.input:focus{ border-color:#7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.12); }
+
+/* ==== Buttons ==== */
+.btn{
+  height: 36px; padding: 0 14px; border-radius: 10px; border: 1px solid #e5e7eb; background: #fff; cursor:pointer; font-weight:700;
+}
+.btn.primary{ background:#7c3aed; border-color:#6d28d9; color:#fff; }
+.btn.ghost{ background:#fff; color:#111827; }
+.btn:hover{ filter: brightness(0.98); }
+
+/* ==== Mini table (ใน Recipe List) ==== */
+.table-mini{ border:1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
+.table-mini .thead, .table-mini .tr{
+  display: grid; grid-template-columns: 1fr 160px 120px; align-items: center;
+}
+.table-mini .thead{ background:#f8fafc; border-bottom:1px solid #e5e7eb; }
+.table-mini .th, .table-mini .td{ padding: 10px 12px; font-size:14px; }

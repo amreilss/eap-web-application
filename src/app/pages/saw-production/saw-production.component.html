@@ -1,0 +1,193 @@
+<div class="page">
+  <div class="page__head">
+    <!-- Hero -->
+    <section class="op-hero">
+      <div class="op-hero__left">
+        <h1 class="op-hero__title">
+          <span class="thin">Wafer Saw</span>
+          <span class="bold">Production</span>
+        </h1>
+        <p class="op-hero__subtitle">โอเปอเรชั่นตัด</p>
+        <button class="op-hero__cta" (click)="scrollToStats()">View All Machines</button>
+      </div>
+      <div class="op-hero__right">
+        <div class="op-hero__blob"></div>
+        <img class="op-hero__img" src="assets/img/saw.png" alt="Saw machine" />
+      </div>
+    </section>
+
+    <!-- Layout: Stats + Content -->
+    <div class="layout">
+      
+    <!-- ซ้าย: Stats -->  
+    <div class="layout__left" id="statsTop">
+      <div class="stats-grid vertical">
+        <!-- 🟣 Total Machines -->
+        <div class="stat-card">
+          <div class="stat-value">{{ totalCount() }}</div>
+          <div class="stat-label">Total Machines</div>
+        </div>
+
+        <!-- 🟢 Active (PD) -->
+        <div class="stat-card">
+          <div class="stat-value" style="color:#22c55e">{{ activeCountNew() }}</div>
+          <div class="stat-label">Production State</div>
+        </div>
+
+        <!-- 🟠 Need Action (SB) -->
+        <div class="stat-card">
+          <div class="stat-value" style="color:#f59e0b">{{ needActionCount() }}</div>
+          <div class="stat-label">Need Action</div>
+        </div>
+
+        <!-- 🔴 Other (not PD or SB) -->
+        <div class="stat-card">
+          <div class="stat-value" style="color:#ef4444">{{ otherCount() }}</div>
+          <div class="stat-label">Other</div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- ขวา: Toolbar + Table -->
+      <div class="layout__right">
+        <!-- Toolbar -->
+        <div class="toolbar">
+          <!-- ซ้าย: Search -->
+          <div class="toolbar__left">
+            <input
+              type="text"
+              class="search"
+              [value]="keyword()"
+              (input)="onKeywordInput($event)"
+              placeholder="🔍 Search machines..."
+            />
+          </div>
+
+          <!-- ขวา: ALL / Sort / Filters -->
+          <div class="toolbar__actions">
+            <div class="actions-inline">
+              <!-- ALL -->
+              <button
+                type="button"
+                class="chip"
+                [class.active]="statusFilter() === 'ALL'"
+                (click)="setStatusFilter('ALL')"
+              >
+                ALL <small *ngIf="statusCounts()['ALL'] !== undefined">{{ statusCounts()['ALL'] }}</small>
+              </button>
+
+              <!-- Sort -->
+              <button type="button" class="chip" (click)="toggleSort()">
+                Sort <span>{{ sortAsc() ? '↑' : '↓' }}</span>
+              </button>
+
+              <div class="filters-wrapper">
+                <button
+                  type="button"
+                  class="chip chip--btn"
+                  (click)="$event.stopPropagation(); toggleFilters()"
+                  aria-haspopup="true"
+                  [attr.aria-expanded]="showFilters()"
+                  [attr.aria-controls]="'filters-popover'"
+                >
+                  Filters
+                </button>
+
+                <!-- Popover -->
+                <div
+                  id="filters-popover"
+                  class="filters-popover"
+                  [class.open]="showFilters()"
+                  role="dialog"
+                  aria-label="Machine filters"
+                  (click)="$event.stopPropagation()"
+                >
+                  <div class="filters-popover__head">
+                    <strong>Filters</strong>
+                    <button type="button" class="filters-close" (click)="closeFilters()" aria-label="Close">✕</button>
+                  </div>
+                  <div class="status-chips pop">
+                    <button
+                      type="button"
+                      *ngFor="let s of innerStatusChips"
+                      class="chip"
+                      [class.active]="statusFilter() === s"
+                      (click)="setStatusFilter(s); closeFilters()"
+                    >
+                      {{ s }}
+                      <small *ngIf="statusCounts()[s] !== undefined">{{ statusCounts()[s] }}</small>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div id="tableTop"></div>
+        <div class="table">
+          <div class="thead">
+            <div class="th th--fav"></div>
+            <div class="th">MACHINE ID</div>
+            <div class="th">STATUS</div>
+            <div class="th">NOTIFICATION</div>
+            <div class="th">ACTION</div>
+          </div>
+
+          <div class="tbody">
+            <div class="tr" *ngFor="let r of filteredRows()">
+              <!-- Favorite Column (col 1) -->
+              <button 
+                class="fav-btn" 
+                [class.active]="isFavorite(r.equipID)" 
+                (click)="toggleFavorite(r.equipID)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.78 1.401 8.174L12 18.896l-7.335 3.868 1.401-8.174L.132 9.21l8.2-1.192z"/>
+                </svg>
+              </button>
+
+              <!-- Machine ID (col 2) -->
+              <div class="td id">
+                <a
+                  [routerLink]="['/saw', r.equipID]"
+                  [state]="{ machine: r }"
+                  class="link-id"
+                >
+                  {{ r.equipID }}
+                </a>
+              </div>
+
+              <!-- Status (col 3) -->
+              <div class="td">
+                <span [class]="badgeClass(r.oeeMode)">{{ r.oeeMode }}</span>
+              </div>
+
+              <!-- Notification (col 4) -->
+              <div class="td">{{ r.oeeDescription }}</div>
+
+              <!-- Action (view) -->
+              <div class="td">
+                <a
+                  [routerLink]="['/saw', r.equipID]"
+                  [state]="{ machine: r }"
+                >
+                  <button class="btn-detail">view</button>
+                </a>
+              </div>
+            </div>
+          
+            <div class="tr" *ngIf="!filteredRows().length">
+              <div class="td" style="grid-column:1/-1;justify-content:center;color:#9ca3af">
+                No machines found.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<app-scroll-to-top></app-scroll-to-top>

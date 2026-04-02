@@ -1,0 +1,41 @@
+<div class="lot-info">
+    <h3>Shift Summary</h3>
+  
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">Bonded Dev (Ttl):</span>
+        <span class="value mono right">{{ shiftData.bondedDevTtl ?? '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Bonded Dev (PD):</span>
+        <span class="value mono right">{{ shiftData.bondedDevPd ?? '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Rejects:</span>
+        <span class="value mono right">{{ shiftData.rejects ?? '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">UPH (PD):</span>
+        <span class="value mono right">{{ shiftData.uphPd ?? '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">MTBA:</span>
+        <span class="value mono right">{{ shiftData.mtba || '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">MTTA:</span>
+        <span class="value mono right">{{ shiftData.mtta || '-' }}</span>
+      </div>
+  
+      <div class="info-item">
+        <span class="label">Efficiency:</span>
+        <span class="value mono right">{{ shiftData.efficiency || '-' }}</span>
+      </div>
+    </div>
+  </div>
+  

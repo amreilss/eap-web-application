@@ -1,0 +1,142 @@
+/* === Theme tokens (เฉพาะที่ใช้จริง) === */
+@ink:     #111827;
+@muted:   #6b7280;
+@border:  #e5e7eb;
+@primary: #2563eb;
+@error:   #ef4444;
+@success: #22c55e;
+
+/* เพิ่มสำหรับ segmented control */
+@blue:    #2563eb;
+
+/* === Segmented Control (tablet friendly) === */
+.seg{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 4px;
+  border:1px solid @border;
+  border-radius: 12px;
+  background:#fff;
+}
+.seg__item{ position: relative; display:block; user-select:none; }
+.seg__input{
+  /* ซ่อนแบบปลอดภัย ยังโฟกัส/กดได้ */
+  position:absolute;
+  opacity:0; width:0; height:0;
+}
+.seg__text{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  height: 46px;
+  border:1px solid transparent; border-radius:10px;
+  font-weight:800; font-size:16px; color:@ink;
+  background:#f8fafc; cursor: pointer;
+  transition: all .18s ease;
+}
+.seg__item:hover .seg__text{ background:#f3f4f6; }
+.seg__input:focus-visible + .seg__text{
+  outline:2px solid @blue; outline-offset:2px;
+}
+/* Selected states (แยกสีตามปุ่ม) */
+.seg__item:nth-child(1) .seg__input:checked + .seg__text{      /* Return */
+  background:#eff6ff; border-color:#93c5fd; color:#1d4ed8;
+}
+.seg__item:nth-child(2) .seg__input:checked + .seg__text{      /* Reject */
+  background:#fef2f2; border-color:#fecaca; color:#b91c1c;
+}
+.seg__item:nth-child(3) .seg__input:checked + .seg__text{      /* Reset */
+  background:#fff7ed; border-color:#fdba74; color:#b45309;
+}
+.seg__icon{ font-size:16px; line-height:1; }
+
+@media (max-width: 420px){
+  .seg{ grid-template-columns: repeat(2, 1fr); }
+  .seg__item:last-child{ grid-column: 1 / -1; } /* ปุ่มสุดท้ายกินทั้งแถว */
+}
+
+/* === Header === */
+.popup__head { margin-bottom: 12px;
+  h3 { margin: 0; font-size: 18px; font-weight: 800; color: @ink; letter-spacing: -.01em; }
+}
+
+/* === Layout === */
+.form { display: flex; flex-direction: column; gap: 14px; }
+
+/* === Fields === */
+.field {
+  display: flex; flex-direction: column; gap: 6px;
+  .label { font-size: 15px; color: #374151; font-weight: 800; }
+  .input {
+    padding: 10px 12px; font-size: 14px; outline: none;
+    border: 1px solid @border; border-radius: 10px; background: #fff;
+    &:focus { border-color: @primary; box-shadow: 0 0 0 3px fade(@primary, 15%); }
+  }
+  .select {
+    display: block; width: 100%; height: 40px; padding: 10px 12px; font-size: 14px;
+    border: 1px solid @border; border-radius: 10px; outline: none; background: #fff;
+    &:focus { border-color: @primary; box-shadow: 0 0 0 3px fade(@primary, 15%); }
+  }
+}
+
+/* === Reason group: ซ้าย dropdown + ขวา banner (เวอร์ชันเสถียร) === */
+.reason-row {
+  --dd-w: clamp(260px, 36vw, 420px);
+
+  display: grid;
+  grid-template-columns: minmax(0, var(--dd-w)) minmax(0, var(--dd-w));
+  gap: 12px;
+  justify-content: start;
+  align-items: stretch;
+  max-width: 100%;
+}
+.reason-row > * { min-width: 0; box-sizing: border-box; width: 100%; }
+.reason-row .select { height: 40px; }
+
+.reason-banner{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:10px 12px; border-radius:12px;
+  border:1px solid #67e8f9; background:#ecfeff; color:#0e7490;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+  max-width:100%; overflow:hidden; word-break:break-word; white-space:normal;
+  .reason-title{ font-weight:800; }
+  .reason-sub{ font-size:12px; opacity:.95; }
+}
+/* โทนสี */
+.reason-banner.info   { background:#ecfeff; color:#0e7490; border-color:#67e8f9; }
+.reason-banner.warn   { background:#fff7ed; color:#b45309; border-color:#fdba74; }
+.reason-banner.danger { background:#fef2f2; color:#b91c1c; border-color:#fecaca; }
+
+@media (max-width: 760px){
+  .reason-row { grid-template-columns: 1fr; justify-items: stretch; }
+  .reason-row .select, .reason-row .reason-banner { width:100%; max-width:100%; }
+}
+
+/* === Actions === */
+.actions{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.actions__left{ display:flex; align-items:center; gap:8px; color:@muted; }
+.actions__right{ margin-left:auto; display:flex; gap:8px; }
+.action-state{
+  font-size:12px; padding:6px 10px; border-radius:999px;
+  border:1px solid @border; background:#fff; color:@muted;
+  &.ok   { color:#065f46; border-color:#a7f3d0; background:#ecfdf5; }
+  &.wait { color:#92400e; border-color:#fed7aa; background:#fffbeb; }
+  &.busy { color:#1f2937; border-color:#cbd5e1; background:#f8fafc; }
+}
+
+/* === Buttons === */
+.btn{
+  padding:8px 14px; border-radius:10px; border:1px solid @border; background:#fff;
+  font-weight:800; cursor:pointer; transition:.18s;
+  &:hover{ background:#f9fafb; }
+}
+.btn--primary{ background:@primary; color:#fff; border-color:@primary; &:hover{ background: darken(@primary, 4%); } }
+.btn--reject{  background:#fef2f2; color:#b91c1c; border-color:#fecaca; &:hover{ background: lighten(#fecaca, 28%); } }
+.btn--reset{   background:#fff7ed; color:#b45309; border-color:#fdba74; &:hover{ background: lighten(#fdba74, 35%); } }
+
+/* === Alerts === */
+.alert{
+  padding:10px 12px; border-radius:10px; font-weight:700; margin-bottom:6px;
+  border:1px solid @border; background:#fff;
+}
+.alert--success{ border-color:@success; color:@success; background: fade(@success, 12%); }
+.alert--error{   border-color:@error;   color:@error;   background: fade(@error, 12%); }

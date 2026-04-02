@@ -1,0 +1,207 @@
+<!-- Backdrop -->
+<div *ngIf="open"
+     class="popup__backdrop"
+     (click)="onBackdrop()"></div>
+
+<!-- Dialog -->
+<div *ngIf="open" class="popup__dialog" (click)="$event.stopPropagation()">
+  <div class="popup__panel">
+    <!-- Sticky header -->
+    <header class="popup__head">
+      <div class="title-wrap">
+        <h3>Download Recipe</h3>
+        <span class="sub">PPC</span>
+      </div>
+      <button type="button"
+              class="popup__close"
+              (click)="onClose()"
+              [disabled]="!canClose"
+              aria-label="Close">×</button>
+    </header>
+
+    <!-- Scrollable body (single scroll area) -->
+    <div class="popup__body">
+      <div class="content-grid" [class.loading]="loading">
+        <!-- LEFT: main form -->
+        <div class="col-main" [formGroup]="form" aria-live="polite">
+          <!-- Alerts -->
+          <div *ngIf="success" class="alert alert--success">{{ success }}</div>
+          <div *ngIf="error"   class="alert alert--error">{{ error }}</div>
+
+          <!-- Recipe (หลัก) -->
+          <section class="card">
+            <h4 class="card__title">Recipe</h4>
+            <div class="grid2">
+              
+              <div class="field">
+                <label class="label">Source</label>
+                <input class="input" type="text" formControlName="source" placeholder="Latest in Machine" />
+              </div>
+              
+              <div class="field">
+                <label class="label">Recipe Folder</label>
+                <input class="input" type="text" formControlName="recipeFolder" placeholder="e.g. PRODUCTION" />
+              </div>
+
+              <div class="field">
+                <label class="label">UTAC Lot ID</label>
+                <input class="input" type="text" formControlName="utacLotId" />
+              </div>
+              
+              <div class="field">
+                <label class="label">Reference BOM</label>
+                <input class="input" type="text" formControlName="referenceBom" />
+              </div>
+              
+              <div class="field">
+                <label class="label">Recipe Name</label>
+                <select class="input" formControlName="recipeName">
+                  <option [ngValue]="null">— Select recipe —</option>
+                  <option *ngFor="let r of recipeNameOptions" [ngValue]="r">{{ r }}</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="label">File Name</label>
+                <input class="input" type="text" formControlName="fileName" placeholder="{{ equipID }}.rcp" />
+              </div>
+
+              <div class="field">
+                <label class="label">Lot Die ID</label>
+                <select class="input" formControlName="lotDieId">
+                  <option [ngValue]="null">— Select lot die —</option>
+                  <option *ngFor="let d of lotDieIdOptions" [ngValue]="d">{{ d }}</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="label">Library Uploade Die ID</label>
+                <input class="input" type="text" formControlName="libDieId" />
+              </div>
+
+              <div class="field">
+                <label class="label">Lot Wafer Size</label>
+                <input class="input" type="text" formControlName="lotWaferSize" />
+              </div>
+              
+              <div class="field">
+                <label class="label">Library Upload Wafer Size</label>
+                <input class="input" type="text" formControlName="libWaferSize" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Blade Setup Info -->
+          <section class="card">
+            <h4 class="card__title">Blade Setup Info</h4>
+            <div class="grid2">
+              <div class="field">
+                <label class="label">Z1 Blade ID</label>
+                <input class="input" type="text" formControlName="z1BladeId" />
+              </div>
+
+              <div class="field">
+                <label class="label">Z2 Blade ID</label>
+                <input class="input" type="text" formControlName="z2BladeId" />
+              </div>
+              
+              <div class="field">
+                <label class="label">Z1 Initial Distance</label>
+                <input class="input" type="text" formControlName="z1Initial" />
+              </div>
+
+              <div class="field">
+                <label class="label">Z2 Initial Distance</label>
+                <input class="input" type="text" formControlName="z2Initial" />
+              </div>
+
+              <div class="field">
+                <label class="label">Z1 Distance Remain</label>
+                <input class="input" type="text" formControlName="z1Remain" />
+              </div>
+
+              <div class="field">
+                <label class="label">Z2 Distance Remain</label>
+                <input class="input" type="text" formControlName="z2Remain" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Recipes Dress Blade -->
+          <section class="card">
+            <h4 class="card__title">Recipes Dress Blade</h4>
+            <div class="grid2">
+              <div class="field">
+                <label class="label">Dress Z1</label>
+                <input class="input" type="text" formControlName="dressZ1" />
+              </div>
+              <div class="field">
+                <label class="label">Interval Z1</label>
+                <input class="input" type="text" formControlName="intervalZ1" />
+              </div>
+              <div class="field">
+                <label class="label">Dress Z2</label>
+                <input class="input" type="text" formControlName="dressZ2" />
+              </div>
+              <div class="field">
+                <label class="label">Interval Z2</label>
+                <input class="input" type="text" formControlName="intervalZ2" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Actions bottom (mobile) -->
+          <div class="actions-mobile">
+            <button class="btn btn--ok"
+                    type="button"
+                    (click)="submit()"
+                    [disabled]="loading || form.invalid"
+                    [class.is-loading]="loading">
+              <span *ngIf="loading" class="spinner"></span>
+              <span *ngIf="!loading">Download Recipe</span>
+              <span *ngIf="loading">Processing…</span>
+            </button>
+            <button class="btn"             type="button">View PPC</button>
+            <button class="btn btn--clear"  type="button" (click)="clear()">Clear</button>
+            <button class="btn btn--cancel" type="button" (click)="onClose()">Cancel</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: side panel -->
+        <div class="col-side" [formGroup]="form">
+          <section class="card">
+            <h4 class="card__title">Download By</h4>
+            <div class="grid2">
+              <div class="field">
+                <label class="label">Employee ID</label>
+                <input class="input" type="text" formControlName="emplId" />
+              </div>
+              <div class="field">
+                <label class="label">Remarks</label>
+                <textarea class="input textarea" rows="3" formControlName="remarks"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="side-buttons">
+            <button
+              class="btn btn--ok"
+              type="button"
+              (click)="submit()"
+              [disabled]="loading || form.invalid"
+              [class.is-loading]="loading">
+              <span class="icon-slot">
+                <span class="spinner" *ngIf="loading"></span>
+              </span>
+              <span class="label" *ngIf="!loading">Download</span>
+              <span class="label" *ngIf="loading">Processing…</span>
+            </button>
+            <button class="btn"             type="button">View PPC</button>
+            <button class="btn btn--clear"  type="button" (click)="clear()">Clear</button>
+            <button class="btn btn--cancel" type="button" (click)="onClose()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

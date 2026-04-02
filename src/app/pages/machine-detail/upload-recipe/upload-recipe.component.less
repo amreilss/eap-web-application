@@ -1,0 +1,174 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:host{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+
+/* Backdrop */
+.popup-overlay{
+  position:fixed; inset:0;
+  background:rgba(15,23,42,.5); backdrop-filter:blur(4px);
+  z-index:1000; opacity:0; animation:fadeIn .2s ease-out forwards;
+}
+@keyframes fadeIn{to{opacity:1}}
+
+/* Centered container */
+.popup-container{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:16px; z-index:1001;
+  margin-top: 80px;
+}
+
+/* SINGLE card */
+.popup-window{
+  width:100%; max-width:960px; max-height:90vh;
+  background:#fff; border-radius:16px; overflow:hidden;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,.15);
+  display:flex; flex-direction:column;
+}
+
+/* Header (stays on top of the card) */
+.popup-header{
+  display:flex; align-items:center; gap:12px;
+  padding:20px 24px; background:#fff; border-bottom:1px solid #f1f5f9;
+  flex:0 0 auto;
+}
+.popup-title{display:flex; align-items:center; gap:12px; flex:1}
+.popup-title h2{font-size:20px; font-weight:600; color:#0f172a}
+.popup-badge{background:#f1f5f9; color:#475569; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:500}
+.close-btn{width:32px;height:32px;border:none;background:#f8fafc;border-radius:8px;color:#64748b;cursor:pointer}
+.close-btn:hover{background:#f1f5f9;color:#475569}
+
+/* Body scrolls */
+.popup-body{
+  flex:1 1 auto; overflow:auto;   /* ← เลื่อนภายในกล่องเดียว */
+}
+
+/* Inner layout */
+.content-wrapper{display:grid; grid-template-columns:1fr 280px; gap:24px; padding:24px}
+@media (max-width:768px){
+  .content-wrapper{grid-template-columns:1fr; gap:20px; padding:20px}
+}
+
+/* Sections */
+.form-section{
+  background:#fff; border:1px solid #f1f5f9; border-radius:12px; padding:20px; margin-bottom:16px;
+}
+.section-title{font-size:16px;font-weight:600;color:#0f172a;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-icon{width:18px;height:18px;color:#64748b}
+
+/* Fields */
+.field-group{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:16px; margin-top: 15px;}
+.field-group:last-child{margin-bottom:0}
+.field{display:flex; flex-direction:column; gap:6px;}
+.field-label{font-size:13px; font-weight:500; color:#475569}
+.field-input{padding:12px 14px; border:1px solid #e2e8f0; border-radius:10px; font-size:16px; background:#fff}
+.field-input:focus{outline:none;border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.field-input[readonly]{background:#f8fafc; color:#64748b}
+textarea.field-input{min-height:80px; resize:vertical}
+
+/* File upload */
+.file-upload{position:relative; border:2px dashed #cbd5e1; border-radius:12px; padding:24px; text-align:center; background:#fafafa; cursor:pointer}
+.file-upload:hover{border-color:#94a3b8; background:#f1f5f9}
+.file-upload.dragover{border-color:#3b82f6; background:#eff6ff}
+.file-upload input[type="file"]{position:absolute; inset:0; opacity:0; cursor:pointer}
+.upload-content{display:flex; flex-direction:column; align-items:center; gap:8px}
+.upload-icon{width:32px;height:32px;color:#94a3b8}
+.upload-text{color:#475569;font-weight:500}
+.upload-hint{color:#64748b;font-size:12px}
+.file-info{display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; background:#f0f9ff; border-radius:8px; color:#0369a1}
+.remove-file{background:#ef4444; color:#fff; border:none; width:24px; height:24px; border-radius:50%; cursor:pointer}
+
+/* Folder */
+.folder-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px; margin-top:12px; margin-bottom: 12px;}
+.folder-option{display:flex; align-items:center; gap:8px; padding:12px 14px; border:1px solid #e2e8f0; border-radius:10px; cursor:pointer; font-size:14px; font-weight:600}
+.folder-option input{margin:0}
+.folder-production{background:#fef3c7;border-color:#f59e0b}
+.folder-qual{background:#cffafe;border-color:#06b6d4}
+.folder-process{background:#fce7f3;border-color:#ec4899}
+.folder-equipment{background:#fee2e2;border-color:#ef4444}
+.folder-rnd{background:#dcfce7;border-color:#10b981}
+.folder-swr{background:#fecaca;border-color:#f87171}
+
+/* Toggles */
+.toggle-group{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:16px}
+.toggle-field{display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:#f8fafc; border-radius:10px; border:1px solid #f1f5f9}
+.toggle-label{font-size:14px; font-weight:600; color:#374151}
+.toggle-options{display:flex; gap:14px}
+.toggle-option{display:flex; align-items:center; gap:6px; font-size:14px; font-weight:500; color:#64748b}
+
+/* Sidebar (tablet friendly buttons) */
+.sidebar{display:flex; flex-direction:column; gap:16px}
+.action-buttons{display:flex; flex-direction:column; gap:10px}
+/* ปุ่มพื้นฐาน (ขนาดใหญ่แตะง่าย) */
+.btn{
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Upload Recipe = Green */
+.btn-primary{
+  background: #22c55e;    
+  color: #fff;
+  border-color: #22c55e;
+}
+.btn-primary:hover{ background:#16a34a; }  
+.btn-primary:disabled{
+  background:hsl(129, 73%, 36%);        
+  border-color:#1ccd1fb1;
+  cursor:not-allowed;
+}
+ 
+/* Clear Form = Yellow */
+.btn-warning{
+  background:#facc15;        
+  color:#111827;
+  border-color:#f59e0b;       
+}
+.btn-warning:hover{ background:#f59e0b; } 
+
+/* View PPC = White */
+.btn-secondary{
+  background:#fff;
+  color:#111827;
+  border-color:#e5e7eb;
+}
+.btn-secondary:hover{ background:#f9fafb; }
+
+/* Cancel = Red */
+.btn-danger{
+  background:#ef4444;
+  color:#fff;
+  border-color:#ef4444;
+}
+.btn-danger:hover{ background:#dc2626; }
+
+
+.warning-card{padding:16px;background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;text-align:center}
+.warning-title{font-weight:700;color:#92400e;margin-bottom:4px}
+.warning-text{font-size:14px;color:#a16207}
+
+/* Alerts */
+.alert{padding:12px 16px;border-radius:10px;margin-bottom:16px;font-size:14px;font-weight:600}
+.alert-success{background:#dcfce7;color:#166534;border:1px solid #bbf7d0}
+.alert-error{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+
+/* Mobile: sidebar goes below */
+@media (max-width:768px){
+  .action-buttons{display:grid; grid-template-columns:repeat(2,1fr); gap:8px}
+}
+
+/* Loading overlay on content */
+.loading{opacity:.6; pointer-events:none}
+.spinner{width:16px;height:16px;border:2px solid #ffffff40;border-top:2px solid #fff;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* (optional) stop background page scroll — put in global styles ifต้องการ */
+:host ::ng-deep body.popup-open{ overflow:hidden; }

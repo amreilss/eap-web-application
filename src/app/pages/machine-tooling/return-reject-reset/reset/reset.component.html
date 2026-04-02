@@ -1,0 +1,21 @@
+<form class="search" [formGroup]="form" (ngSubmit)="submit()">
+    <label class="field">
+      <span class="label">Blade ID (saw_ToolingID)</span>
+      <input class="input" type="text" formControlName="bladeId" placeholder="เช่น 72809008 KF029 EXP0561 2507" />
+    </label>
+  
+    <div class="search__actions">
+      <button class="btn btn--primary" type="submit" [disabled]="loading || form.invalid">
+        {{ loading ? 'Processing…' : 'Preview' }}
+      </button>
+    </div>
+  </form>
+  
+  <div *ngIf="msg" class="alert alert--success">{{ msg }}</div>
+  <div *ngIf="err" class="alert alert--error">{{ err }}</div>
+  
+  <div class="preview" *ngIf="preview">
+    <div class="muted">Payload ที่จะส่ง:</div>
+    <pre>{{ preview | json }}</pre>
+  </div>
+  

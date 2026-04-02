@@ -1,0 +1,209 @@
+<div class="popup">
+  <header class="popup__head">
+    <div class="title">
+      <span class="emoji">➕</span>
+      <h3>Add New Blade</h3>
+    </div>
+
+    <div class="meta" *ngIf="machineId">
+      <span class="pill">Machine: {{ machineId }}</span>
+    </div>
+  </header>
+
+  <div *ngIf="success" class="alert alert--success">
+    <div><b>Blade has been created successfully.</b></div>
+    <div *ngIf="success.toolingId">Tooling ID: <b>{{ success.toolingId }}</b></div>
+    <div *ngIf="success.message">{{ success.message }}</div>
+  </div>
+
+  <div *ngIf="error" class="alert alert--error">{{ error }}</div>
+
+  <form class="search" [formGroup]="form" (ngSubmit)="submitSearch()">
+    <label class="field">
+      <span class="label">Search By:</span>
+      <select class="select" formControlName="mode">
+        <option value="barcode">Blade barcode ID</option>
+        <option value="stockType">Stock &amp; Blade Type</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="label">Plant:</span>
+      <select class="select" formControlName="plant">
+        <option value="UTL1">UTL1</option>
+        <option value="UTL2">UTL2</option>
+        <option value="UTL3">UTL3</option>
+      </select>
+    </label>
+
+    <label class="field field--grow">
+      <span class="label">{{ searchLabel }}</span>
+      <input
+        class="input"
+        type="text"
+        formControlName="query"
+        [placeholder]="searchPlaceholder" />
+    </label>
+
+    <div class="search__actions">
+      <button class="btn btn--primary" type="submit" [disabled]="loading || form.invalid">
+        {{ loading ? 'Searching…' : 'Search' }}
+      </button>
+
+      <button class="btn" type="button" (click)="clear()" [disabled]="loading">
+        Clear
+      </button>
+    </div>
+  </form>
+
+  <div class="table-wrap" *ngIf="results.length; else noResult">
+    <div class="table-scroll">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Production Stock</th>
+            <th>Store Stock ID</th>
+            <th>Blade Type</th>
+            <th>BladeChangeRecC</th>
+            <th>Customer</th>
+            <th>Spindle</th>
+            <th>Condition</th>
+            <th class="num">Control Limit</th>
+            <th class="num">Spec Limit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            *ngFor="let r of results; trackBy: trackByIndex; let i = index"
+            (click)="selectRow(i)"
+            (keydown.enter)="selectRow(i)"
+            tabindex="0"
+            [class.selected]="i === selectedIndex">
+            <td>{{ val(r, 'productionStock') }}</td>
+            <td>{{ val(r, 'storeStockId') }}</td>
+            <td class="wrap">{{ val(r, 'bladeType') }}</td>
+            <td>{{ val(r, 'bladeChangeRecC') }}</td>
+            <td>{{ val(r, 'customer') }}</td>
+            <td>{{ val(r, 'spindle') }}</td>
+            <td>{{ val(r, 'condition') }}</td>
+            <td class="num">{{ val(r, 'controlLimit') }}</td>
+            <td class="num">{{ val(r, 'specLimit') }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-actions">
+      <button
+        class="btn"
+        type="button"
+        (click)="selectedIndex = null"
+        [disabled]="selectedIndex === null">
+        Unselect
+      </button>
+
+      <div class="spacer"></div>
+
+      <button
+        class="btn btn--primary"
+        type="button"
+        (click)="addFromSelection()"
+        [disabled]="!canAdd || submitting">
+        {{ submitting ? 'Saving…' : 'Add' }}
+      </button>
+    </div>
+  </div>
+
+  <ng-template #noResult>
+    <div class="state" *ngIf="!loading">ไม่มีผลลัพธ์</div>
+  </ng-template>
+</div>
+
+<div class="confirm-overlay" *ngIf="showConfirm" (click)="closeConfirm()">
+  <div class="confirm" (click)="$event.stopPropagation()">
+    <div class="confirm__head">
+      <h4>➕ Add New Blade</h4>
+      <button type="button" class="x" (click)="closeConfirm()">×</button>
+    </div>
+
+    <ng-container *ngIf="selectedRow as row; else needSelect">
+      <form class="confirm__form" [formGroup]="confirmForm">
+        <div class="row">
+          <label class="w-label">Blade ID</label>
+          <input
+            class="input"
+            type="text"
+            formControlName="bladeId"
+            placeholder="ใส่ Blade ID" />
+        </div>
+
+        <div class="row">
+          <label class="w-label">Initial Exposure</label>
+          <div class="inline">
+            <input
+              class="input"
+              type="number"
+              step="0.001"
+              formControlName="exposureUm"
+              placeholder="µm" />
+            <span class="unit">um.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="w-label">Initial Exposure</label>
+          <div class="inline">
+            <input
+              class="input"
+              type="number"
+              step="0.00001"
+              formControlName="exposureInch"
+              placeholder="inch"
+              readonly />
+            <span class="unit">inch</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="w-label">Initial Distance</label>
+          <div class="inline">
+            <input
+              class="input"
+              type="number"
+              formControlName="initialDistance"
+              readonly />
+            <span class="unit">feet.</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="w-label">Blade Lot ID</label>
+          <input
+            class="input"
+            type="text"
+            formControlName="bladeLotId"
+            readonly />
+        </div>
+
+        <div class="confirm__actions">
+          <button type="button" class="btn" (click)="closeConfirm()">Cancel</button>
+          <button
+            type="button"
+            class="btn btn--primary"
+            (click)="confirmAdd()"
+            [disabled]="!canConfirmAdd">
+            {{ submitting ? 'Saving…' : 'Add New' }}
+          </button>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-template #needSelect>
+      <div class="state confirm__empty">กรุณาเลือกแถวจากตารางก่อน</div>
+      <div class="confirm__actions">
+        <button type="button" class="btn" (click)="closeConfirm()">Close</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

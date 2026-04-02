@@ -1,0 +1,168 @@
+<div class="popup">
+  <header class="popup__head">
+    <div class="title">
+      <span class="emoji">🧰</span>
+      <h3>Manage Blade Type</h3>
+    </div>
+
+    <div class="meta">
+      <span class="pill" [ngClass]="mode === 'update' ? 'pill--green' : mode === 'insert' ? 'pill--orange' : 'pill--gray'">
+        Mode: {{ modeLabel }}
+      </span>
+
+      <span class="pill pill--blue" *ngIf="recipeValue">
+        Recipe: {{ recipeValue }}
+      </span>
+
+      <span class="pill" [ngClass]="canEdit ? 'pill--green' : 'pill--gray'">
+        {{ canEdit ? 'Editable' : 'Locked' }}
+      </span>
+    </div>
+  </header>
+
+  <div *ngIf="error" class="state state--error">{{ error }}</div>
+  <div *ngIf="success" class="state state--success">{{ success }}</div>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <div class="grid grid--top">
+      <label class="field col-span-2">
+        <span>Lot No. (New)</span>
+        <input
+          type="text"
+          formControlName="lotNoNew"
+          (blur)="onLotNewBlur()"
+          placeholder="เช่น MIPDS0233.1" />
+      </label>
+
+      <label class="field col-span-2">
+        <span>Recipe</span>
+        <input
+          type="text"
+          formControlName="recipe"
+          placeholder="ค้นหาอัตโนมัติจาก Lot No." />
+      </label>
+
+      <label class="check">
+        <input type="checkbox" formControlName="isTaiko" />
+        <span>Blade Taiko</span>
+      </label>
+    </div>
+
+    <div class="grid grid--blade">
+      <label class="field">
+        <span>Z1</span>
+        <input type="text" formControlName="z1" placeholder="Blade / Type" />
+      </label>
+
+      <label class="field">
+        <span>Z1 2nd</span>
+        <input type="text" formControlName="z1_2nd" placeholder="2nd / Stock" />
+      </label>
+
+      <label class="field">
+        <span>Z2</span>
+        <input type="text" formControlName="z2" placeholder="Blade / Type" />
+      </label>
+
+      <label class="field">
+        <span>Z2 2nd</span>
+        <input type="text" formControlName="z2_2nd" placeholder="2nd / Stock" />
+      </label>
+    </div>
+
+    <div class="actions">
+      <button
+        class="btn btn--primary"
+        type="submit"
+        [disabled]="!canSubmit">
+        {{ actionLabel }}
+      </button>
+
+      <button
+        class="btn"
+        type="button"
+        (click)="clear()"
+        [disabled]="loading">
+        Clear
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="showResultPanel" class="result">
+    <div class="kv">
+      <div class="kv__row kv__head">
+        <div>Field</div>
+        <div>Value</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Recipe Name</div>
+        <div>{{ detail?.recipeName || recipeValue || '-' }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Blade Type of Blade Z1</div>
+        <div class="wrap">{{ detail?.bladeTypeZ1 || form.controls.z1.value || '-' }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Production Stock of Blade Z1</div>
+        <div>{{ detail?.prodStockZ1 || '-' }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Blade Type of Blade Z2</div>
+        <div class="wrap">
+          {{ form.controls.isTaiko.value ? '-' : (detail?.bladeTypeZ2 || form.controls.z2.value || '-') }}
+        </div>
+      </div>
+
+      <div class="kv__row">
+        <div>Production Stock of Blade Z2</div>
+        <div>{{ form.controls.isTaiko.value ? '-' : (detail?.prodStockZ2 || '-') }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Production Stock of Blade Z1 2nd</div>
+        <div>{{ detail?.prodStockZ1_2nd || form.controls.z1_2nd.value || '-' }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Production Stock of Blade Z2 2nd</div>
+        <div>
+          {{ form.controls.isTaiko.value ? '-' : (detail?.prodStockZ2_2nd || form.controls.z2_2nd.value || '-') }}
+        </div>
+      </div>
+
+      <div class="kv__row">
+        <div>Last update</div>
+        <div>{{ detail?.lastUpdate || '-' }}</div>
+      </div>
+
+      <div class="kv__row">
+        <div>Created by Lot no</div>
+        <div>{{ detail?.createdByLot || form.controls.lotNoNew.value || '-' }}</div>
+      </div>
+    </div>
+
+    <aside class="summary">
+      <div class="summary__cell">
+        <div class="summary__title">{{ recipeValue || detail?.recipeName || '-' }}</div>
+        <div class="summary__sub">
+          {{ mode === 'update' ? 'Existing Configuration' : 'Ready to Add' }}
+        </div>
+
+        <div class="summary__meta">
+          Lot: {{ form.controls.lotNoNew.value || '-' }}
+        </div>
+
+        <div class="summary__tags">
+          <span class="pill pill--blue">Taiko: {{ form.controls.isTaiko.value ? 'Yes' : 'No' }}</span>
+          <span class="pill" [ngClass]="canEdit ? 'pill--green' : 'pill--gray'">
+            {{ canEdit ? 'Editable' : 'Locked' }}
+          </span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>

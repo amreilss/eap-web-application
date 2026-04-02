@@ -1,0 +1,72 @@
+<div class="lot-info">
+  <h3>Lot Information</h3>
+
+  <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+  <div class="info-grid" [class.loading]="isLoading">
+    <div class="info-item">
+      <span class="label">UTAC Lot ID</span>
+      <span class="value">{{ lotData.utacLotId || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Stage</span>
+      <span class="value">{{ lotData.stage || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Part ID</span>
+      <span class="value">{{ lotData.partId || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Device ID</span>
+      <span class="value">{{ lotData.deviceId || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Customer</span>
+      <span class="value">{{ lotData.customer || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Lot Size</span>
+      <span class="value">{{ lotData.lotSize || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Package</span>
+      <span class="value">{{ lotData.package || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Package Size</span>
+      <span class="value">{{ lotData.packageSize || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Package Pin Count</span>
+      <span class="value">{{ lotData.packagePinCount || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Wafer Qty</span>
+      <span class="value">{{ lotData.waferQty || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Expected UPH</span>
+      <span class="value">{{ lotData.expectedUph || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">SAW Program Name</span>
+      <span class="value">{{ lotData.sawProgramName || '-' }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Actual Wafer Size</span>
+      <span class="value">{{ lotData.actualWaferSize || '-' }}</span>
+    </div>
+  </div>
+</div>

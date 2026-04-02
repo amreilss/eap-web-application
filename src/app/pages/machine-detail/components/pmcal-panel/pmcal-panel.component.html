@@ -1,0 +1,51 @@
+<div class="lot-info">
+    <div class="header-box">
+        <span class="title">Preventive Maintenance</span>
+        <span class="title">Calibration Summary</span>
+      </div>
+  
+    <section class="table-section">
+      <h3>PM</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Bonder</th>
+            <th>Sch Type</th>
+            <th>PM Date</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of pmcalData.pm">
+            <td>{{ row.bonder }}</td>
+            <td>{{ row.schType }}</td>
+            <td>{{ row.date }}</td>
+            <td>{{ row.dueDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="table-section">
+      <h3>Cal</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Bonder</th>
+            <th>Sch Type</th>
+            <th>Cal Date</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of pmcalData.cal">
+            <td>{{ row.bonder }}</td>
+            <td>{{ row.schType }}</td>
+            <td>{{ row.date }}</td>
+            <td>{{ row.dueDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  

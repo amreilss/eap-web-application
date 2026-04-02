@@ -1,0 +1,17 @@
+<section class="wrap">
+    <div class="top">
+      <h2>EAP Operation</h2>
+      <app-search-box [(value)]="keyword" placeholder="Search machine..." />
+    </div>
+  
+    <div class="grid">
+      <app-machine-card
+        *ngFor="let m of machines()"
+        [name]="m.name"
+        [img]="m.img"
+      />
+
+    </div>
+  </section>
+  
+  <app-scroll-to-top></app-scroll-to-top>

@@ -1,0 +1,92 @@
+:host{ display:block; }
+
+/* ===== Header ===== */
+.popup{ display:flex; flex-direction:column; gap:12px; }
+.popup__head{
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px;
+  margin-bottom: 2px;
+  padding-right: 56px;
+}
+
+.BladeID{
+  font-size: 15px;
+  color: #374151;
+  font-weight: 800;
+}
+
+.title{ display:flex; align-items:center; gap:8px; }
+.title h3{ margin:0; font-size:18px; font-weight:800; }
+.emoji{ font-size:18px; }
+.meta{ display:flex; gap:8px; flex-wrap:wrap; margin-left: auto; }
+.pill{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 8px; border:1px solid #e5e7eb; border-radius:999px; background:#fff;
+  font-size:12px; font-weight:700; color:#374151;
+}
+.pill--blue{ border-color:#93c5fd; color:#1d4ed8; background:#eff6ff; }
+
+/* ===== Search ===== */
+.search{ display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; }
+.search__label{ display:flex; flex-direction:column; gap:6px; min-width: 320px; }
+.search__input{
+  border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#fff; outline:none;
+}
+.search__input:focus{ border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.12); }
+.search__actions{ display:flex; gap:8px; }
+
+.btn{
+  padding:8px 12px; border:1px solid #e5e7eb; border-radius:10px; background:#fff; cursor:pointer;
+  font-weight:700;
+}
+.btn[disabled]{ opacity:.6; cursor:not-allowed; }
+.btn--primary{ border-color:#3b82f6; }
+
+/* ===== States ===== */
+.state{ color:#374151; }
+.state--error{ color:#b91c1c; }
+
+/* ===== Result layout ===== */
+.result{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) 200px;  /* ซ้ายข้อมูล ขวาสรุป */
+  gap:12px;
+}
+
+/* ตารางแบบสองคอลัมน์ที่ไม่ตัดคำ */
+.kv{
+  border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fff;
+}
+.kv__row{
+  display:grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr); /* label/value */
+}
+.kv__row > div{
+  padding:10px 12px;
+  border-bottom:1px solid #f1f5f9;
+  line-height: 1.25;
+  white-space: normal;     /* ❗ ไม่ตัดเป็น ... */
+  word-break: break-word;  /* ❗ ตัดคำยาวให้ลงบรรทัด */
+}
+.kv__row:last-child > div{ border-bottom:none; }
+.kv__head{ background:#f8fafc; font-weight:800; }
+
+/* ข้อความที่ยาวมากบังคับห่อบรรทัด */
+.wrap{ white-space: normal; word-break: break-word; }
+
+/* กล่องสรุปทางขวา */
+.summary{ display:flex; align-items:flex-start; }
+.summary__cell{
+  width:100%;
+  border:1px solid #e5e7eb; border-radius:12px; background:#fff;
+  padding:16px; text-align:center;
+}
+.summary__title{ font-size:22px; font-weight:800; }
+.summary__sub{ color:#6b7280; margin-top:6px; }
+
+@media (max-width: 720px){
+  .result{ grid-template-columns: 1fr; }
+  .summary{ order: -1; } /* เอาการ์ดสรุปขึ้นก่อนก็ได้ */
+}

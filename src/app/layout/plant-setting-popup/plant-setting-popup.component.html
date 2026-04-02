@@ -1,0 +1,25 @@
+<!-- Backdrop -->
+<div class="popup__backdrop" (click)="cancel()"></div>
+
+<!-- Dialog -->
+<div class="popup__dialog" (click)="$event.stopPropagation()">
+  <header class="popup__head">
+    <h3>⚙ Select Plant</h3>
+  </header>
+
+  <div class="popup__body">
+    <button
+        *ngFor="let p of ['1','2','3']"
+        [class.active]="p === selected"
+        (click)="select(castToPlant(p))">
+        Plant {{ p }}
+    </button>
+
+
+  </div>
+
+  <footer class="popup__foot">
+    <button class="save" (click)="save()">Save</button>
+    <button class="cancel" (click)="cancel()">Cancel</button>
+  </footer>
+</div>

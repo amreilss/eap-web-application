@@ -1,0 +1,37 @@
+<div class="panel">
+    <!-- ปุ่มหัว (เลือกแสดง/ซ่อน) -->
+    <div class="group-head" *ngIf="showHeaders">
+      <button type="button"
+              class="head-btn"
+              [class.is-active]="expandedInternal==='PROD'"
+              (click)="toggle('PROD')">Production</button>
+  
+      <button type="button"
+              class="head-btn"
+              [class.is-active]="expandedInternal==='MAINT'"
+              (click)="toggle('MAINT')">Maintenance</button>
+    </div>
+  
+    <!-- ปุ่มลูก Production -->
+    <div class="sub-list" *ngIf="expandedInternal==='PROD'">
+      <button type="button"
+              class="sub-btn"
+              *ngFor="let a of productionActions"
+              [disabled]="a.disabled"
+              (click)="onSelect(a.key, a.disabled)">
+        {{ a.label }}
+      </button>
+    </div>
+  
+    <!-- ปุ่มลูก Maintenance -->
+    <div class="sub-list" *ngIf="expandedInternal==='MAINT'">
+      <button type="button"
+              class="sub-btn"
+              *ngFor="let a of maintenanceActions"
+              [disabled]="a.disabled"
+              (click)="onSelect(a.key, a.disabled)">
+        {{ a.label }}
+      </button>
+    </div>
+  </div>
+  

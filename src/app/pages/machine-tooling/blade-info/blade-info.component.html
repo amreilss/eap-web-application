@@ -1,0 +1,67 @@
+<div class="popup">
+  <!-- Header ของปุ่มนี้ -->
+  <header class="popup__head">
+    <div class="title">
+      <span class="emoji">📄</span>
+      <h3>Blade Information</h3>
+    </div>
+  
+    
+    <div class="meta" *ngIf="foundPlant">
+      <span class="pill pill--blue">Plant: {{ foundPlant }}</span>
+    </div>
+  </header>
+  
+
+  <!-- Search -->
+  <form class="search" [formGroup]="form" (ngSubmit)="submit()">
+    <label class="search__label">
+      <span class="BladeID">Blade ID:</span>
+      <input
+        class="search__input"
+        type="text"
+        formControlName="bladeId"
+        placeholder="เช่น 11DADDOGH250710DX506LSE" />
+    </label>
+
+    <div class="search__actions">
+      <button class="btn btn--primary" type="submit" [disabled]="loading || form.invalid">
+        {{ loading ? 'Searching…' : 'Search' }}
+      </button>
+      <button class="btn" type="button" (click)="clear()" [disabled]="loading">Clear</button>
+    </div>
+  </form>
+
+  <!-- States -->
+  <div *ngIf="error" class="state state--error">{{ error }}</div>
+  <div *ngIf="!loading && searchedOnce && !data && !error" class="state">ไม่พบข้อมูล</div>
+
+  <!-- Result -->
+  <div *ngIf="data" class="result">
+    <div class="kv">
+      <div class="kv__row kv__head">
+        <div>Parameter</div>
+        <div>Value</div>
+      </div>
+
+      <div class="kv__row"><div>Tooling ID</div><div>{{ data.toolingId }}</div></div>
+      <div class="kv__row"><div>Production Stock</div><div>{{ data.productionStock }}</div></div>
+      <div class="kv__row"><div>Tooling Status</div><div class="wrap">{{ data.toolingStatus }}</div></div>
+      <div class="kv__row"><div>Exposure Remaining</div><div>{{ data.exposureRemaining | number:'1.5-5' }}</div></div>
+      <div class="kv__row"><div>Distance Remaining</div><div>{{ data.distanceRemaining }}</div></div>
+      <div class="kv__row"><div>Spindle</div><div>{{ data.spindle }}</div></div>
+      <div class="kv__row"><div>Blade Type</div><div class="wrap">{{ data.bladeType }}</div></div>
+      <div class="kv__row"><div>Store Stock</div><div>{{ data.storeStock }}</div></div>
+      <div class="kv__row"><div>Machine Name</div><div>{{ data.machineName }}</div></div>
+      <div class="kv__row"><div>Condition</div><div>{{ data.condition }}</div></div>
+      <div class="kv__row"><div>Blade Lot ID</div><div class="wrap">{{ data.bladeLotId }}</div></div>
+    </div>
+
+    <aside class="summary">
+      <div class="summary__cell">
+        <div class="summary__title">{{ data.spindle }}</div>
+        <div class="summary__sub">ALL</div>
+      </div>
+    </aside>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="detail-panel">
+  <!-- Tabs -->
+  <div class="detail-panel__tabs">
+    <button *ngFor="let tab of tabs"
+      (click)="activeTab = tab.id"
+      [class.active]="activeTab === tab.id">
+      <i class="lucide" [ngClass]="'lucide-' + tab.icon"></i>
+      <span>{{ tab.label }}</span>
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="detail-panel__content">
+    <ng-container [ngSwitch]="activeTab">
+
+      <!-- Setup -->
+      <div *ngSwitchCase="'setup'">
+        <app-setup-panel></app-setup-panel>
+      </div>
+
+      <!-- Lot -->
+      <div *ngSwitchCase="'lot'">
+        <app-lot-panel [equipID]="selectedEquipID"></app-lot-panel>
+      </div>
+
+      <!-- Shift -->
+      <div *ngSwitchCase="'shift'">
+        <app-shift-panel></app-shift-panel>
+      </div>
+
+      <!-- PM/Cal -->
+      <div *ngSwitchCase="'pmcal'">
+        <app-pmcal-panel></app-pmcal-panel>
+      </div>
+
+      <!-- Default -->
+      <div *ngSwitchDefault>
+        <p>เลือก Tab เพื่อดูข้อมูล</p>
+      </div>
+
+    </ng-container>
+  </div>
+</div>
