@@ -36,10 +36,3 @@ The system was redesigned into a responsive web application accessible through t
 The interface and workflow were designed using Figma and Canva before implementation, focusing on usability, readability, and responsive user experience for operators and engineers.
 
 ---
-
-## Development
-
-To start the development server:
-
-```bash
-ng serve
